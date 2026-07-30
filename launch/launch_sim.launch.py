@@ -44,8 +44,21 @@ def generate_launch_description():
         output='screen'
     )
 
+    bridge = Node(
+    package="ros_gz_bridge",
+    executable="parameter_bridge",
+    arguments=[
+        "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
+        "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
+        "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock",
+    ],
+    output="screen",
+)
+
+
     return LaunchDescription([
         rsp,
         gazebo,
-        spawn_robot
+        spawn_robot,
+        bridge
     ])
