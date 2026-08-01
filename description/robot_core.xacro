@@ -58,6 +58,7 @@
     </xacro:inertial_box>
 </link>
 
+
 <!-- LEFT WHEEL LINK-->
 
 <joint name="left_wheel_joint" type="continuous">
@@ -122,16 +123,37 @@
 <link name="caster_wheel">
 <visual>
     <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.048"/>
     </geometry>
     <material name="black"/>
 </visual>
+
 <collision>
     <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.048"/>
     </geometry>
+
+  <surface>
+    <friction>
+      <ode>
+        <mu>0.0</mu>
+        <mu2>0.0</mu2>
+      </ode>
+    </friction>
+
+    <contact>
+      <ode>
+        <kp>100000</kp>
+        <kd>100</kd>
+        <max_vel>0.01</max_vel>
+        <min_depth>0.001</min_depth>
+      </ode>
+    </contact>
+  </surface>
+
 </collision>
-    <xacro:inertial_sphere mass="0.1" radius ="0.05">
+
+    <xacro:inertial_sphere mass="0.1" radius="0.048">
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:inertial_sphere>
 </link>
