@@ -26,8 +26,11 @@ def generate_launch_description():
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='screen',
-        parameters=[params]
-    )
+        parameters=[params],
+        remappings=[
+            ('/joint_states', '/world/empty/model/my_bot/joint_state'),
+    ]
+)
 
 
     # Launch!

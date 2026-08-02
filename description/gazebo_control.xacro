@@ -30,6 +30,13 @@
      <publish_tf>true</publish_tf>
 
   </plugin>
-</gazebo>
+
+  <!-- Joint State Publisher -->
+    <plugin
+        filename="gz-sim-joint-state-publisher-system"
+        name="gz::sim::systems::JointStatePublisher">
+    </plugin>
+
+</gazebo>    
 
 </robot>
