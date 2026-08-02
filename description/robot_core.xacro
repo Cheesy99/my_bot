@@ -127,30 +127,10 @@
     </geometry>
     <material name="black"/>
 </visual>
-
 <collision>
     <geometry>
         <sphere radius="0.048"/>
     </geometry>
-
-  <surface>
-    <friction>
-      <ode>
-        <mu>0.0</mu>
-        <mu2>0.0</mu2>
-      </ode>
-    </friction>
-
-    <contact>
-      <ode>
-        <kp>100000</kp>
-        <kd>100</kd>
-        <max_vel>0.01</max_vel>
-        <min_depth>0.001</min_depth>
-      </ode>
-    </contact>
-  </surface>
-
 </collision>
 
     <xacro:inertial_sphere mass="0.1" radius="0.048">
@@ -158,6 +138,10 @@
     </xacro:inertial_sphere>
 </link>
 
+<gazebo reference="caster_wheel">
+    <mu1 value="0.001"/>
+    <mu2 value="0.001"/>
+</gazebo>
 
 
 </robot>
